@@ -145,3 +145,11 @@ func (m *metricsClient) IsClosed() bool {
 func (m *metricsClient) GetTelemetry() statsd.Telemetry {
 	return statsd.Telemetry{}
 }
+
+func (m *metricsClient) GaugeWithTimestamp(string, float64, []string, float64, time.Time) error {
+	return nil
+}
+
+func (m *metricsClient) CountWithTimestamp(string, int64, []string, float64, time.Time) error {
+	return nil
+}
