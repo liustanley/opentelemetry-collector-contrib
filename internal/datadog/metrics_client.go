@@ -28,10 +28,10 @@ type metricsClient struct {
 }
 
 // InitializeMetricClient using a meter provider.
-func InitializeMetricClient(mp metric.MeterProvider, source string) statsd.ClientInterface {
+func InitializeMetricClient(mp metric.MeterProvider) statsd.ClientInterface {
 	return &metricsClient{
-		meter:     mp.Meter("datadog"),
-		gauges:    make(map[string]float64),
+		meter:  mp.Meter("datadog"),
+		gauges: make(map[string]float64),
 		sourceTag: fmt.Sprintf("source:%v", source),
 	}
 }
